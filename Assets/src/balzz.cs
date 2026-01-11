@@ -44,7 +44,7 @@ public class balzz : MonoBehaviour
         else if (Input.GetKey(KeyCode.S)) 
         { 
             rb.AddForce(Vector3.back * force); 
-        }else if (Input.GetKey(KeyCode.Space))
+        }if (Input.GetKey(KeyCode.Space))
         { 
             rb.AddForce(Vector3.up * jump);
         }
