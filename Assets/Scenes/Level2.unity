@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5647059, g: 0.80392164, b: 0.8196079, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -652,10 +652,12 @@ GameObject:
   - component: {fileID: 365666034}
   - component: {fileID: 365666038}
   - component: {fileID: 365666039}
+  - component: {fileID: 365666041}
+  - component: {fileID: 365666040}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -776,9 +778,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &365666039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,6 +793,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f802ef7982d3a27478145cc6afdc566f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::balzz
+--- !u!114 &365666040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365666033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e7a62732f77dc449c3a2e77bb0603b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::stopDetector
+  stopThreshold: 0.1
+  timeToStop: 1
+--- !u!114 &365666041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365666033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25d8214257f652459a524b365814ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::collision
+  scorePerTree: 10
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +947,55 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &814818099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814818101}
+  - component: {fileID: 814818100}
+  m_Layer: 0
+  m_Name: TreeSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &814818100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814818099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae0347595ccec7478aaaa694b4b1d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeSpawner
+  treePrefab: {fileID: 6117071349010126079, guid: d250af4848f51154f9a2bf6a85b60ac2,
+    type: 3}
+  treeCount: 2000
+  areaSize: {x: 600, y: 600}
+  minDistance: 10
+--- !u!4 &814818101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814818099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 468, y: 133.4, z: 492}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1197,7 @@ GameObject:
   - component: {fileID: 891241355}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1278,3 +1356,4 @@ SceneRoots:
   - {fileID: 365666037}
   - {fileID: 356983142}
   - {fileID: 1884826644}
+  - {fileID: 814818101}
