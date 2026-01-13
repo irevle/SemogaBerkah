@@ -6,6 +6,7 @@ public class collision : MonoBehaviour
 {
     public int scorePerTree = 10;
     private int treesDestroyed = 0;
+    public ParticleSystem particle;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,6 +15,7 @@ public class collision : MonoBehaviour
         {
             treesDestroyed++;
             Destroy(collision.gameObject);
+            particle.Play();
         }
 
         //TreeMarker tree = collision.transform.GetComponentInParent<TreeMarker>();
