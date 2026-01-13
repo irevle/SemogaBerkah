@@ -5,7 +5,7 @@ public class balzz : MonoBehaviour
 {
     #region Fields
     float force = 10f;
-    float jump = 20f;
+    float jump = 500f;
     Rigidbody rb;
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,7 +44,7 @@ public class balzz : MonoBehaviour
         else if (Input.GetKey(KeyCode.S)) 
         { 
             rb.AddForce(Vector3.back * force); 
-        }if (Input.GetKey(KeyCode.Space))
+        }if (Input.GetKeyDown(KeyCode.Space))
         { 
             rb.AddForce(Vector3.up * jump);
         }
